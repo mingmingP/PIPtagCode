@@ -1,0 +1,1113 @@
+******************************************************************************
+                  MSP430 Linker PC v4.4.5                      
+******************************************************************************
+>> Linked Fri Jul 06 15:06:27 2018
+
+OUTPUT FILE NAME:   <TPIP1_SendBeacon.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs_noexit"  address: 0000e6c2
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SFR                   00000000   00000010  00000000  00000010  RWIX
+  PERIPHERALS_8BIT      00000010   000000f0  00000000  000000f0  RWIX
+  PERIPHERALS_16BIT     00000100   00000100  00000000  00000100  RWIX
+  RAM                   00000200   00000200  000001d0  00000030  RWIX
+  INFOD                 00001000   00000040  00000000  00000040  RWIX
+  INFOC                 00001040   00000040  00000000  00000040  RWIX
+  INFOB                 00001080   00000040  00000000  00000040  RWIX
+  INFOA                 000010c0   00000040  00000000  00000040  RWIX
+  FLASH                 0000c000   00003fde  00002954  0000168a  RWIX
+  BSLCFG                0000ffde   00000002  00000002  00000000  RWIX
+  INT00                 0000ffe0   00000002  00000002  00000000  RWIX
+  INT01                 0000ffe2   00000002  00000002  00000000  RWIX
+  INT02                 0000ffe4   00000002  00000002  00000000  RWIX
+  INT03                 0000ffe6   00000002  00000002  00000000  RWIX
+  INT04                 0000ffe8   00000002  00000002  00000000  RWIX
+  INT05                 0000ffea   00000002  00000002  00000000  RWIX
+  INT06                 0000ffec   00000002  00000002  00000000  RWIX
+  INT07                 0000ffee   00000002  00000002  00000000  RWIX
+  INT08                 0000fff0   00000002  00000002  00000000  RWIX
+  INT09                 0000fff2   00000002  00000002  00000000  RWIX
+  INT10                 0000fff4   00000002  00000002  00000000  RWIX
+  INT11                 0000fff6   00000002  00000002  00000000  RWIX
+  INT12                 0000fff8   00000002  00000002  00000000  RWIX
+  INT13                 0000fffa   00000002  00000002  00000000  RWIX
+  INT14                 0000fffc   00000002  00000002  00000000  RWIX
+  RESET                 0000fffe   00000002  00000002  00000000  RWIX
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.bss       0    00000200    00000180     UNINITIALIZED
+                  00000200    00000094     history.obj (.bss)
+                  00000294    0000003f     main.obj (.bss)
+                  000002d3    00000001     --HOLE--
+                  000002d4    0000002d     mem_pool.obj (.bss)
+                  00000301    00000001     --HOLE--
+                  00000302    00000022     temperature.obj (.bss)
+                  00000324    0000001c     optical_conn.obj (.bss)
+                  00000340    00000014     tuning.obj (.bss)
+                  00000354    00000013     htu21d.obj (.bss)
+                  00000367    00000001     --HOLE--
+                  00000368    00000006     light.obj (.bss)
+                  0000036e    00000004     battery.obj (.bss)
+                  00000372    00000004     moisture.obj (.bss)
+                  00000376    00000003     interrupt.obj (.bss)
+                  00000379    00000001     --HOLE--
+                  0000037a    00000002     AlarmClock-v1.2.obj (.bss)
+                  0000037c    00000002     TI_CC_spi.obj (.bss)
+                  0000037e    00000002     sensing.obj (.bss)
+
+.stack     0    000003b0    00000050     UNINITIALIZED
+                  000003b0    00000002     rts430.lib : boot.obj (.stack)
+                  000003b2    0000004e     --HOLE--
+
+.text      0    0000c000    000027d6     
+                  0000c000    000004ba     main.obj (.text:main)
+                  0000c4ba    000001ca     htu21d.obj (.text:senseHTU21DHumidity)
+                  0000c684    000001ba     history.obj (.text:addHistory)
+                  0000c83e    00000184     CC1100-CC2500.obj (.text:writeRFSettings)
+                  0000c9c2    00000182     htu21d.obj (.text:senseHTU21DTemperature)
+                  0000cb44    0000013a     moisture.obj (.text:doMoistureSense)
+                  0000cc7e    00000130     rts430.lib : fs_add.obj (.text)
+                  0000cdae    0000010e     tuning.obj (.text:ReWriteCC1101Registers)
+                  0000cebc    000000ec     AlarmClock-v1.2.obj (.text)
+                  0000cfa8    000000e2     battery.obj (.text:getUsedJoules)
+                  0000d08a    000000c4     light.obj (.text:relativeLightLevel)
+                  0000d14e    000000c2     rts430.lib : fs_mpy.obj (.text)
+                  0000d210    000000be     htu21d.obj (.text:initHTU21D)
+                  0000d2ce    000000be     main.obj (.text:recalibrateVLO)
+                  0000d38c    000000a0     htu21d.obj (.text:readIICByte)
+                  0000d42c    0000009a     rts430.lib : fs_div.obj (.text)
+                  0000d4c6    00000092     moisture.obj (.text:cm_getMoistureLevel)
+                  0000d558    0000008e     TI_CC_spi.obj (.text:TI_CC_PowerupResetCCxxxx)
+                  0000d5e6    00000082     htu21d.obj (.text:writeIICByte)
+                  0000d668    0000007e     tuning.obj (.text:restoreCC11xxRegs)
+                  0000d6e6    0000007e     rts430.lib : fs_tol.obj (.text)
+                  0000d764    00000076     interrupt.obj (.text:TIMER0_A1_ISR)
+                  0000d7da    00000074     battery.obj (.text:Msp430_GetSupplyVoltage)
+                  0000d84e    0000006c     htu21d.obj (.text:IICWarmup)
+                  0000d8ba    0000006c     moisture.obj (.text:cm_initMoistureSense)
+                  0000d926    00000068     rts430.lib : fs_toi.obj (.text)
+                  0000d98e    00000066     main.obj (.text:transmitAndPwrDown)
+                  0000d9f4    00000060     htu21d.obj (.text:checkCRC)
+                  0000da54    00000060     temperature.obj (.text:getTemperature)
+                  0000dab4    0000005e     optical_conn.obj (.text:flashLights)
+                  0000db12    0000005c     rts430.lib : lsr32.obj (.text:l_lsr_const)
+                  0000db6e    00000058                : div32u.obj (.text)
+                  0000dbc6    00000056     tuning.obj (.text:storeCC11xxRegs)
+                  0000dc1c    00000054     moisture.obj (.text:crystalOn)
+                  0000dc70    00000054     sensing.obj (.text:doTemp7Binary)
+                  0000dcc4    00000050     tuning.obj (.text:setupAndPowerDownCC11xx)
+                  0000dd14    0000004c     rts430.lib : fs_toul.obj (.text)
+                  0000dd60    0000004c                : lsr16.obj (.text)
+                  0000ddac    0000004a     htu21d.obj (.text:doSenseHTUTemp16F)
+                  0000ddf6    0000004a     tuning.obj (.text:recal)
+                  0000de40    0000004a     temperature.obj (.text:recalRadioFromTemp)
+                  0000de8a    0000004a     rts430.lib : fs_cmp.obj (.text)
+                  0000ded4    0000004a                : fs_ltof.obj (.text)
+                  0000df1e    0000004a     main.obj (.text:setMSP430Pins)
+                  0000df68    00000048     rts430.lib : autoinit.obj (.text:_auto_init)
+                  0000dfb0    00000048     tuning.obj (.text:setFreq)
+                  0000dff8    00000046     battery.obj (.text:doBatterySense)
+                  0000e03e    00000046     htu21d.obj (.text:doSenseHTURH16F)
+                  0000e084    00000046     rts430.lib : fs_tou.obj (.text)
+                  0000e0ca    00000042     htu21d.obj (.text:IICStart)
+                  0000e10c    00000042     TI_CC_spi.obj (.text:TI_CC_SPISetup)
+                  0000e14e    00000040     TI_CC_spi.obj (.text:TI_CC_SPIWriteBurstReg)
+                  0000e18e    00000040     rts430.lib : div32s.obj (.text)
+                  0000e1ce    00000040     main.obj (.text:sleep10ms)
+                  0000e20e    0000003e     htu21d.obj (.text:IICStop)
+                  0000e24c    0000003e     rts430.lib : asr32.obj (.text:l_asr_const)
+                  0000e28a    0000003e                : lsl32.obj (.text:l_lsl_const)
+                  0000e2c8    0000003e     sensing.obj (.text:round)
+                  0000e306    0000003e     sensing.obj (.text:senseBinary)
+                  0000e344    0000003c     history.obj (.text:initHistory)
+                  0000e380    00000036     tuning.obj (.text:Wake_up_CC1101)
+                  0000e3b6    00000036     rts430.lib : fs_itof.obj (.text)
+                  0000e3ec    00000032     temperature.obj (.text:doSenseTemp16F)
+                  0000e41e    00000032     rts430.lib : fs_ultof.obj (.text)
+                  0000e450    00000030     TI_CC_spi.obj (.text:TI_CC_SPIReadReg)
+                  0000e480    0000002c     rts430.lib : asr16.obj (.text)
+                  0000e4ac    0000002c                : div16s.obj (.text)
+                  0000e4d8    0000002c                : lsl16.obj (.text)
+                  0000e504    00000028     TI_CC_spi.obj (.text:TI_CC_SPIWriteReg)
+                  0000e52c    00000028     temperature.obj (.text:updateTemp7)
+                  0000e554    00000026     light.obj (.text:doSenseAmbientLight)
+                  0000e57a    00000026     mem_pool.obj (.text:freeAll)
+                  0000e5a0    00000026     rts430.lib : mult32.obj (.text)
+                  0000e5c6    00000024                : fs_utof.obj (.text)
+                  0000e5ea    00000020     TI_CC_spi.obj (.text:TI_CC_Wait)
+                  0000e60a    00000020     mem_pool.obj (.text:malloc)
+                  0000e62a    00000020     tuning.obj (.text:recalibrateCC11xx)
+                  0000e64a    00000020     temperature.obj (.text:updateTemp16F)
+                  0000e66a    0000001e     TI_CC_spi.obj (.text:TI_CC_SPIStrobe)
+                  0000e688    0000001e     main.obj (.text:set_UCS)
+                  0000e6a6    0000001c     moisture.obj (.text:crystalOff)
+                  0000e6c2    0000001a     rts430.lib : boot_special.obj (.text:_c_int00_noargs_noexit)
+                  0000e6dc    0000001a     temperature.obj (.text:initTemperature)
+                  0000e6f6    00000016     rts430.lib : div16u.obj (.text)
+                  0000e70c    00000014     htu21d.obj (.text:p1interrupt)
+                  0000e720    00000014     rts430.lib : mult16.obj (.text)
+                  0000e734    00000012     interrupt.obj (.text:TIMER1_A0_ISR)
+                  0000e746    00000012     rts430.lib : memcpy.obj (.text:memcpy)
+                  0000e758    00000010                : epilog.obj (.text)
+                  0000e768    00000010     tuning.obj (.text:setPowerSettings)
+                  0000e778    00000010     sensing.obj (.text:to16Fixed)
+                  0000e788    0000000e     temperature.obj (.text:ADC10_ISR)
+                  0000e796    0000000e     temperature.obj (.text:configADC)
+                  0000e7a4    0000000a     rts430.lib : abs.obj (.text:abs)
+                  0000e7ae    0000000a     mem_pool.obj (.text:getAllSize)
+                  0000e7b8    0000000a     temperature.obj (.text:setLastTemp)
+                  0000e7c2    00000006     rts430.lib : isr_trap.obj (.text:_isr:__TI_ISR_TRAP)
+                  0000e7c8    00000006     mem_pool.obj (.text:getBase)
+                  0000e7ce    00000004     rts430.lib : pre_init.obj (.text:_system_pre_init)
+                  0000e7d2    00000004                : exit.obj (.text:abort)
+
+.cinit     0    0000e7d6    00000160     
+                  0000e7d6    0000005d     main.obj (.cinit)
+                  0000e833    00000001     --HOLE-- [fill = 0]
+                  0000e834    00000041     temperature.obj (.cinit)
+                  0000e875    00000001     --HOLE-- [fill = 0]
+                  0000e876    00000031     tuning.obj (.cinit)
+                  0000e8a7    00000001     --HOLE-- [fill = 0]
+                  0000e8a8    0000001d     htu21d.obj (.cinit)
+                  0000e8c5    00000001     --HOLE-- [fill = 0]
+                  0000e8c6    00000019     history.obj (.cinit)
+                  0000e8df    00000001     --HOLE-- [fill = 0]
+                  0000e8e0    00000011     interrupt.obj (.cinit)
+                  0000e8f1    00000001     --HOLE-- [fill = 0]
+                  0000e8f2    00000011     light.obj (.cinit)
+                  0000e903    00000001     --HOLE-- [fill = 0]
+                  0000e904    00000011     mem_pool.obj (.cinit)
+                  0000e915    00000001     --HOLE-- [fill = 0]
+                  0000e916    0000000b     sensing.obj (.cinit)
+                  0000e921    00000001     --HOLE-- [fill = 0]
+                  0000e922    00000006     TI_CC_spi.obj (.cinit)
+                  0000e928    00000006     battery.obj (.cinit)
+                  0000e92e    00000006     moisture.obj (.cinit)
+                  0000e934    00000002     --HOLE-- [fill = 0]
+
+.const     0    0000e936    0000001e     
+                  0000e936    0000001e     htu21d.obj (.const)
+
+.pinit     0    0000c000    00000000     UNINITIALIZED
+
+.bslcfg    0    0000ffde    00000002     
+                  0000ffde    00000002     main.obj (.bslcfg)
+
+.int00     0    0000ffe0    00000002     
+                  0000ffe0    00000002     main.obj (.int00)
+
+.int01     0    0000ffe2    00000002     
+                  0000ffe2    00000002     main.obj (.int01)
+
+.int02     0    0000ffe4    00000002     
+                  0000ffe4    00000002     htu21d.obj (.int02)
+
+.int03     0    0000ffe6    00000002     
+                  0000ffe6    00000002     rts430.lib : int03.obj (.int03)
+
+.int04     0    0000ffe8    00000002     
+                  0000ffe8    00000002     main.obj (.int04)
+
+.int05     0    0000ffea    00000002     
+                  0000ffea    00000002     temperature.obj (.int05)
+
+.int06     0    0000ffec    00000002     
+                  0000ffec    00000002     rts430.lib : int06.obj (.int06)
+
+.int07     0    0000ffee    00000002     
+                  0000ffee    00000002     rts430.lib : int07.obj (.int07)
+
+.int08     0    0000fff0    00000002     
+                  0000fff0    00000002     interrupt.obj (.int08)
+
+.int09     0    0000fff2    00000002     
+                  0000fff2    00000002     AlarmClock-v1.2.obj (.int09)
+
+.int10     0    0000fff4    00000002     
+                  0000fff4    00000002     AlarmClock-v1.2.obj (.int10)
+
+.int11     0    0000fff6    00000002     
+                  0000fff6    00000002     rts430.lib : int11.obj (.int11)
+
+.int12     0    0000fff8    00000002     
+                  0000fff8    00000002     rts430.lib : int12.obj (.int12)
+
+.int13     0    0000fffa    00000002     
+                  0000fffa    00000002     interrupt.obj (.int13)
+
+.int14     0    0000fffc    00000002     
+                  0000fffc    00000002     rts430.lib : int14.obj (.int14)
+
+.reset     0    0000fffe    00000002     
+                  0000fffe    00000002     rts430.lib : boot.obj (.reset)
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                    
+-------   ----                    
+00000200  .bss                    
+0000c000  .text                   
+0000e942  ACK                     
+0000004a  ADC10AE0                
+000001b0  ADC10CTL0               
+000001b2  ADC10CTL1               
+00000048  ADC10DTC0               
+00000049  ADC10DTC1               
+000001b4  ADC10MEM                
+000001bc  ADC10SA                 
+0000e788  ADC10_ISR               
+0000cebc  AlrmClkStrt             
+00000057  BCSCTL1                 
+00000058  BCSCTL2                 
+00000053  BCSCTL3                 
+0000e7d2  C$$EXIT                 
+00000059  CACTL1                  
+0000005a  CACTL2                  
+000010fb  CALBC1_12MHZ            
+000010f9  CALBC1_16MHZ            
+000010ff  CALBC1_1MHZ             
+000010fd  CALBC1_8MHZ             
+000010fa  CALDCO_12MHZ            
+000010f8  CALDCO_16MHZ            
+000010fe  CALDCO_1MHZ             
+000010fc  CALDCO_8MHZ             
+0000005b  CAPD                    
+0000034d  CC1150RegFSCAL0         
+0000034e  CC1150RegFSCAL1         
+0000034f  CC1150RegFSCAL2         
+00000350  CC1150RegFSCAL3         
+0000034a  CC1150RegTEST0          
+0000034b  CC1150RegTEST1          
+0000034c  CC1150RegTEST2          
+0000e936  DATA                    
+00000056  DCOCTL                  
+00000128  FCTL1                   
+0000012a  FCTL2                   
+0000012c  FCTL3                   
+0000e938  HTU_ADDRESS             
+0000e93b  HTU_HOLD_RH             
+0000e93a  HTU_HOLD_TEMP           
+0000e93e  HTU_NO_HOLD             
+0000e939  HTU_READ_FLAG           
+0000e940  HTU_READ_REG            
+0000e93d  HTU_RH                  
+0000e950  HTU_RH_OFFSET           
+0000e94c  HTU_RH_SLOPE            
+0000e941  HTU_SOFT_RESET          
+0000e93c  HTU_TEMP                
+0000e948  HTU_TEMP_OFFSET         
+0000e944  HTU_TEMP_SLOPE          
+0000e93f  HTU_WRITE_REG           
+00000000  IE1                     
+00000001  IE2                     
+00000002  IFG1                    
+00000003  IFG2                    
+0000e0ca  IICStart                
+0000e20e  IICStop                 
+0000d84e  IICWarmup               
+0000e480  I_ASR                   
+0000e4a8  I_ASR_1                 
+0000e496  I_ASR_10                
+0000e494  I_ASR_11                
+0000e492  I_ASR_12                
+0000e490  I_ASR_13                
+0000e48e  I_ASR_14                
+0000e48c  I_ASR_15                
+0000e4a6  I_ASR_2                 
+0000e4a4  I_ASR_3                 
+0000e4a2  I_ASR_4                 
+0000e4a0  I_ASR_5                 
+0000e49e  I_ASR_6                 
+0000e49c  I_ASR_7                 
+0000e49a  I_ASR_8                 
+0000e498  I_ASR_9                 
+0000e4d8  I_LSL                   
+0000e500  I_LSL_1                 
+0000e4ee  I_LSL_10                
+0000e4ec  I_LSL_11                
+0000e4ea  I_LSL_12                
+0000e4e8  I_LSL_13                
+0000e4e6  I_LSL_14                
+0000e4e4  I_LSL_15                
+0000e4fe  I_LSL_2                 
+0000e4fc  I_LSL_3                 
+0000e4fa  I_LSL_4                 
+0000e4f8  I_LSL_5                 
+0000e4f6  I_LSL_6                 
+0000e4f4  I_LSL_7                 
+0000e4f2  I_LSL_8                 
+0000e4f0  I_LSL_9                 
+0000dd60  I_LSR                   
+0000dda6  I_LSR_1                 
+0000dd82  I_LSR_10                
+0000dd7e  I_LSR_11                
+0000dd7a  I_LSR_12                
+0000dd76  I_LSR_13                
+0000dd72  I_LSR_14                
+0000dd6e  I_LSR_15                
+0000dda2  I_LSR_2                 
+0000dd9e  I_LSR_3                 
+0000dd9a  I_LSR_4                 
+0000dd96  I_LSR_5                 
+0000dd92  I_LSR_6                 
+0000dd8e  I_LSR_7                 
+0000dd8a  I_LSR_8                 
+0000dd86  I_LSR_9                 
+0000e284  L_ASR_1                 
+0000e260  L_ASR_10                
+0000e25c  L_ASR_11                
+0000e258  L_ASR_12                
+0000e254  L_ASR_13                
+0000e250  L_ASR_14                
+0000e24c  L_ASR_15                
+0000e280  L_ASR_2                 
+0000e27c  L_ASR_3                 
+0000e278  L_ASR_4                 
+0000e274  L_ASR_5                 
+0000e270  L_ASR_6                 
+0000e26c  L_ASR_7                 
+0000e268  L_ASR_8                 
+0000e264  L_ASR_9                 
+0000e2c2  L_LSL_1                 
+0000e29e  L_LSL_10                
+0000e29a  L_LSL_11                
+0000e296  L_LSL_12                
+0000e292  L_LSL_13                
+0000e28e  L_LSL_14                
+0000e28a  L_LSL_15                
+0000e2be  L_LSL_2                 
+0000e2ba  L_LSL_3                 
+0000e2b6  L_LSL_4                 
+0000e2b2  L_LSL_5                 
+0000e2ae  L_LSL_6                 
+0000e2aa  L_LSL_7                 
+0000e2a6  L_LSL_8                 
+0000e2a2  L_LSL_9                 
+0000db66  L_LSR_1                 
+0000db30  L_LSR_10                
+0000db2a  L_LSR_11                
+0000db24  L_LSR_12                
+0000db1e  L_LSR_13                
+0000db18  L_LSR_14                
+0000db12  L_LSR_15                
+0000db60  L_LSR_2                 
+0000db5a  L_LSR_3                 
+0000db54  L_LSR_4                 
+0000db4e  L_LSR_5                 
+0000db48  L_LSR_6                 
+0000db42  L_LSR_7                 
+0000db3c  L_LSR_8                 
+0000db36  L_LSR_9                 
+0000d7da  Msp430_GetSupplyVoltage 
+0000e943  NACK                    
+00000022  P1DIR                   
+00000025  P1IE                    
+00000024  P1IES                   
+00000023  P1IFG                   
+00000020  P1IN                    
+00000021  P1OUT                   
+00000027  P1REN                   
+00000026  P1SEL                   
+00000041  P1SEL2                  
+0000002a  P2DIR                   
+0000002d  P2IE                    
+0000002c  P2IES                   
+0000002b  P2IFG                   
+00000028  P2IN                    
+00000029  P2OUT                   
+0000002f  P2REN                   
+0000002e  P2SEL                   
+00000042  P2SEL2                  
+0000001a  P3DIR                   
+00000018  P3IN                    
+00000019  P3OUT                   
+00000010  P3REN                   
+0000001b  P3SEL                   
+00000043  P3SEL2                  
+0000cdae  ReWriteCC1101Registers  
+0000e937  SCK                     
+0000cece  SleepLPM3               
+00000172  TA0CCR0                 
+00000174  TA0CCR1                 
+00000176  TA0CCR2                 
+00000162  TA0CCTL0                
+00000164  TA0CCTL1                
+00000166  TA0CCTL2                
+00000160  TA0CTL                  
+0000012e  TA0IV                   
+00000170  TA0R                    
+00000192  TA1CCR0                 
+00000194  TA1CCR1                 
+00000196  TA1CCR2                 
+00000182  TA1CCTL0                
+00000184  TA1CCTL1                
+00000186  TA1CCTL2                
+00000180  TA1CTL                  
+0000011e  TA1IV                   
+00000190  TA1R                    
+0000d764  TIMER0_A1_ISR           
+0000e734  TIMER1_A0_ISR           
+0000d558  TI_CC_PowerupResetCCxxxx
+0000e450  TI_CC_SPIReadReg        
+0000e10c  TI_CC_SPISetup          
+0000e66a  TI_CC_SPIStrobe         
+0000e14e  TI_CC_SPIWriteBurstReg  
+0000e504  TI_CC_SPIWriteReg       
+0000e5ea  TI_CC_Wait              
+000010db  TLV_ADC10_1_LEN         
+000010da  TLV_ADC10_1_TAG         
+000010c0  TLV_CHECKSUM            
+000010f7  TLV_DCO_30_LEN          
+000010f6  TLV_DCO_30_TAG          
+0000037c  TimeOut                 
+0000005d  UCA0ABCTL               
+00000062  UCA0BR0                 
+00000063  UCA0BR1                 
+00000060  UCA0CTL0                
+00000061  UCA0CTL1                
+0000005f  UCA0IRRCTL              
+0000005e  UCA0IRTCTL              
+00000064  UCA0MCTL                
+00000066  UCA0RXBUF               
+00000065  UCA0STAT                
+00000067  UCA0TXBUF               
+0000006a  UCB0BR0                 
+0000006b  UCB0BR1                 
+00000068  UCB0CTL0                
+00000069  UCB0CTL1                
+0000006c  UCB0I2CIE               
+00000118  UCB0I2COA               
+0000011a  UCB0I2CSA               
+0000006e  UCB0RXBUF               
+0000006d  UCB0STAT                
+0000006f  UCB0TXBUF               
+00000120  WDTCTL                  
+0000e380  Wake_up_CC1101          
+00000400  __STACK_END             
+00000050  __STACK_SIZE            
+0000e7c2  __TI_ISR_TRAP           
+0000ffe0  __TI_int00              
+0000ffe2  __TI_int01              
+0000ffe4  __TI_int02              
+0000ffe6  __TI_int03              
+0000ffe8  __TI_int04              
+0000ffea  __TI_int05              
+0000ffec  __TI_int06              
+0000ffee  __TI_int07              
+0000fff0  __TI_int08              
+0000fff2  __TI_int09              
+0000fff4  __TI_int10              
+0000fff6  __TI_int11              
+0000fff8  __TI_int12              
+0000fffa  __TI_int13              
+0000fffc  __TI_int14              
+ffffffff  __binit__               
+00000200  __bss__                 
+ffffffff  __c_args__              
+0000e7d6  __cinit__               
+0000e4ac  __divi                  
+0000e18e  __divli                 
+0000e6f6  __divu                  
+0000db6e  __divul                 
+00000380  __end__                 
+0000e7d6  __etext__               
+0000cc84  __fs_add                
+0000de8a  __fs_cmp                
+0000d42c  __fs_div                
+0000e3b6  __fs_itof               
+0000ded4  __fs_ltof               
+0000d14e  __fs_mpy                
+0000cc7e  __fs_sub                
+0000d926  __fs_toi                
+0000d6e6  __fs_tol                
+0000e084  __fs_tou                
+0000dd14  __fs_toul               
+0000e41e  __fs_ultof              
+0000e5c6  __fs_utof               
+0000e720  __mpyi                  
+0000e720  __mpyi_sw               
+0000e5a0  __mpyl                  
+0000e5a0  __mpyl_sw               
+ffffffff  __pinit__               
+0000e4ac  __remi                  
+0000e18e  __remli                 
+0000e6f6  __remu                  
+0000db6e  __remul                 
+0000c000  __text__                
+0000df68  _auto_init              
+0000e6c2  _c_int00_noargs_noexit  
+0000fffe  _reset_vector           
+000003b0  _stack                  
+0000e7ce  _system_pre_init        
+0000e7d2  abort                   
+0000e7a4  abs                     
+00000306  adc10_value             
+0000c684  addHistory              
+0000036c  ambient_val             
+000002aa  baseBuffer              
+0000036e  battery_location        
+ffffffff  binit                   
+00000294  boardID                 
+0000ffde  bslcfg                  
+000002d4  buff_a                  
+000002e8  buff_b                  
+00000370  cached_battery          
+00000368  cached_light            
+00000372  cached_moisture         
+00000304  cached_temp16F          
+0000d9f4  checkCRC                
+0000e7d6  cinit                   
+0000d4c6  cm_getMoistureLevel     
+0000d8ba  cm_initMoistureSense    
+0000e796  configADC               
+0000e6a6  crystalOff              
+0000dc1c  crystalOn               
+00000346  cur_freq                
+000002fe  cur_ptr                 
+0000dff8  doBatterySense          
+0000cb44  doMoistureSense         
+0000e554  doSenseAmbientLight     
+0000e03e  doSenseHTURH16F         
+0000ddac  doSenseHTUTemp16F       
+0000e3ec  doSenseTemp16F          
+0000dc70  doTemp7Binary           
+00000380  end                     
+0000e7d6  etext                   
+0000dab4  flashLights             
+0000e57a  freeAll                 
+00000298  freq                    
+0000e764  func_epilog_1           
+0000e762  func_epilog_2           
+0000e760  func_epilog_3           
+0000e75e  func_epilog_4           
+0000e75c  func_epilog_5           
+0000e75a  func_epilog_6           
+0000e758  func_epilog_7           
+0000e7ae  getAllSize              
+0000e7c8  getBase                 
+0000da54  getTemperature          
+0000cfa8  getUsedJoules           
+00000342  highchange              
+00000200  history                 
+0000028c  historyHead             
+0000028e  historyHeadHour         
+00000292  historyIndex            
+00000293  historyRegValue         
+00000360  htu_RH16_location       
+00000362  htu_cached_RH16F        
+0000035e  htu_cached_temp16F      
+00000364  htu_initialized         
+00000354  htu_lastTemp            
+0000035c  htu_temp16_location     
+0000d210  initHTU21D              
+0000e344  initHistory             
+0000e6dc  initTemperature         
+00000377  initializingHTU         
+0000037e  lastBinary              
+0000031c  lastCalibrateTemp       
+00000358  lastRH                  
+00000318  lastTemp                
+00000300  last_length             
+00000322  last_temp7              
+0000036a  light_location          
+00000340  lowchange               
+0000c000  main                    
+0000e60a  malloc                  
+0000e746  memcpy                  
+00000374  moisture_location       
+00000314  notTempOffset           
+00000310  notTempSlope            
+000002be  numBattery              
+000002b2  numBinary               
+000002ba  numHTU                  
+000002ce  numHistory              
+000002c6  numLight                
+000002c2  numRadio                
+000002b6  numTemp                 
+000002ca  numWakeup               
+00000324  optBuff                 
+0000e70c  p1interrupt             
+00000352  paTable                 
+0000029c  params                  
+0000ffe0  password1               
+0000ffe2  password2               
+0000ffe8  password3               
+ffffffff  pinit                   
+0000d38c  readIICByte             
+0000e952  read_retries            
+0000ddf6  recal                   
+0000de40  recalRadioFromTemp      
+0000e62a  recalibrateCC11xx       
+0000d2ce  recalibrateVLO          
+0000d08a  relativeLightLevel      
+0000d668  restoreCC11xxRegs       
+0000e2c8  round                   
+0000e306  senseBinary             
+0000c4ba  senseHTU21DHumidity     
+0000c9c2  senseHTU21DTemperature  
+00000376  sensingMoisture         
+0000dfb0  setFreq                 
+0000e7b8  setLastTemp             
+0000df1e  setMSP430Pins           
+0000e768  setPowerSettings        
+0000e688  set_UCS                 
+0000dcc4  setupAndPowerDownCC11xx 
+0000e1ce  sleep10ms               
+000002fc  start_ptr               
+00000344  step                    
+0000dbc6  storeCC11xxRegs         
+00000302  temp16_location         
+00000320  temp7_location          
+0000030c  temperatureOffset       
+00000308  temperatureSlope        
+00000378  timedSleep              
+0000e778  to16Fixed               
+0000d98e  transmitAndPwrDown      
+0000e64a  updateTemp16F           
+0000e52c  updateTemp7             
+000002d2  updatedTemp             
+000002ae  vloMsMult               
+0000d5e6  writeIICByte            
+0000c83e  writeRFSettings         
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                    
+-------   ----                    
+00000000  IE1                     
+00000001  IE2                     
+00000002  IFG1                    
+00000003  IFG2                    
+00000010  P3REN                   
+00000018  P3IN                    
+00000019  P3OUT                   
+0000001a  P3DIR                   
+0000001b  P3SEL                   
+00000020  P1IN                    
+00000021  P1OUT                   
+00000022  P1DIR                   
+00000023  P1IFG                   
+00000024  P1IES                   
+00000025  P1IE                    
+00000026  P1SEL                   
+00000027  P1REN                   
+00000028  P2IN                    
+00000029  P2OUT                   
+0000002a  P2DIR                   
+0000002b  P2IFG                   
+0000002c  P2IES                   
+0000002d  P2IE                    
+0000002e  P2SEL                   
+0000002f  P2REN                   
+00000041  P1SEL2                  
+00000042  P2SEL2                  
+00000043  P3SEL2                  
+00000048  ADC10DTC0               
+00000049  ADC10DTC1               
+0000004a  ADC10AE0                
+00000050  __STACK_SIZE            
+00000053  BCSCTL3                 
+00000056  DCOCTL                  
+00000057  BCSCTL1                 
+00000058  BCSCTL2                 
+00000059  CACTL1                  
+0000005a  CACTL2                  
+0000005b  CAPD                    
+0000005d  UCA0ABCTL               
+0000005e  UCA0IRTCTL              
+0000005f  UCA0IRRCTL              
+00000060  UCA0CTL0                
+00000061  UCA0CTL1                
+00000062  UCA0BR0                 
+00000063  UCA0BR1                 
+00000064  UCA0MCTL                
+00000065  UCA0STAT                
+00000066  UCA0RXBUF               
+00000067  UCA0TXBUF               
+00000068  UCB0CTL0                
+00000069  UCB0CTL1                
+0000006a  UCB0BR0                 
+0000006b  UCB0BR1                 
+0000006c  UCB0I2CIE               
+0000006d  UCB0STAT                
+0000006e  UCB0RXBUF               
+0000006f  UCB0TXBUF               
+00000118  UCB0I2COA               
+0000011a  UCB0I2CSA               
+0000011e  TA1IV                   
+00000120  WDTCTL                  
+00000128  FCTL1                   
+0000012a  FCTL2                   
+0000012c  FCTL3                   
+0000012e  TA0IV                   
+00000160  TA0CTL                  
+00000162  TA0CCTL0                
+00000164  TA0CCTL1                
+00000166  TA0CCTL2                
+00000170  TA0R                    
+00000172  TA0CCR0                 
+00000174  TA0CCR1                 
+00000176  TA0CCR2                 
+00000180  TA1CTL                  
+00000182  TA1CCTL0                
+00000184  TA1CCTL1                
+00000186  TA1CCTL2                
+00000190  TA1R                    
+00000192  TA1CCR0                 
+00000194  TA1CCR1                 
+00000196  TA1CCR2                 
+000001b0  ADC10CTL0               
+000001b2  ADC10CTL1               
+000001b4  ADC10MEM                
+000001bc  ADC10SA                 
+00000200  .bss                    
+00000200  __bss__                 
+00000200  history                 
+0000028c  historyHead             
+0000028e  historyHeadHour         
+00000292  historyIndex            
+00000293  historyRegValue         
+00000294  boardID                 
+00000298  freq                    
+0000029c  params                  
+000002aa  baseBuffer              
+000002ae  vloMsMult               
+000002b2  numBinary               
+000002b6  numTemp                 
+000002ba  numHTU                  
+000002be  numBattery              
+000002c2  numRadio                
+000002c6  numLight                
+000002ca  numWakeup               
+000002ce  numHistory              
+000002d2  updatedTemp             
+000002d4  buff_a                  
+000002e8  buff_b                  
+000002fc  start_ptr               
+000002fe  cur_ptr                 
+00000300  last_length             
+00000302  temp16_location         
+00000304  cached_temp16F          
+00000306  adc10_value             
+00000308  temperatureSlope        
+0000030c  temperatureOffset       
+00000310  notTempSlope            
+00000314  notTempOffset           
+00000318  lastTemp                
+0000031c  lastCalibrateTemp       
+00000320  temp7_location          
+00000322  last_temp7              
+00000324  optBuff                 
+00000340  lowchange               
+00000342  highchange              
+00000344  step                    
+00000346  cur_freq                
+0000034a  CC1150RegTEST0          
+0000034b  CC1150RegTEST1          
+0000034c  CC1150RegTEST2          
+0000034d  CC1150RegFSCAL0         
+0000034e  CC1150RegFSCAL1         
+0000034f  CC1150RegFSCAL2         
+00000350  CC1150RegFSCAL3         
+00000352  paTable                 
+00000354  htu_lastTemp            
+00000358  lastRH                  
+0000035c  htu_temp16_location     
+0000035e  htu_cached_temp16F      
+00000360  htu_RH16_location       
+00000362  htu_cached_RH16F        
+00000364  htu_initialized         
+00000368  cached_light            
+0000036a  light_location          
+0000036c  ambient_val             
+0000036e  battery_location        
+00000370  cached_battery          
+00000372  cached_moisture         
+00000374  moisture_location       
+00000376  sensingMoisture         
+00000377  initializingHTU         
+00000378  timedSleep              
+0000037c  TimeOut                 
+0000037e  lastBinary              
+00000380  __end__                 
+00000380  end                     
+000003b0  _stack                  
+00000400  __STACK_END             
+000010c0  TLV_CHECKSUM            
+000010da  TLV_ADC10_1_TAG         
+000010db  TLV_ADC10_1_LEN         
+000010f6  TLV_DCO_30_TAG          
+000010f7  TLV_DCO_30_LEN          
+000010f8  CALDCO_16MHZ            
+000010f9  CALBC1_16MHZ            
+000010fa  CALDCO_12MHZ            
+000010fb  CALBC1_12MHZ            
+000010fc  CALDCO_8MHZ             
+000010fd  CALBC1_8MHZ             
+000010fe  CALDCO_1MHZ             
+000010ff  CALBC1_1MHZ             
+0000c000  .text                   
+0000c000  __text__                
+0000c000  main                    
+0000c4ba  senseHTU21DHumidity     
+0000c684  addHistory              
+0000c83e  writeRFSettings         
+0000c9c2  senseHTU21DTemperature  
+0000cb44  doMoistureSense         
+0000cc7e  __fs_sub                
+0000cc84  __fs_add                
+0000cdae  ReWriteCC1101Registers  
+0000cebc  AlrmClkStrt             
+0000cece  SleepLPM3               
+0000cfa8  getUsedJoules           
+0000d08a  relativeLightLevel      
+0000d14e  __fs_mpy                
+0000d210  initHTU21D              
+0000d2ce  recalibrateVLO          
+0000d38c  readIICByte             
+0000d42c  __fs_div                
+0000d4c6  cm_getMoistureLevel     
+0000d558  TI_CC_PowerupResetCCxxxx
+0000d5e6  writeIICByte            
+0000d668  restoreCC11xxRegs       
+0000d6e6  __fs_tol                
+0000d764  TIMER0_A1_ISR           
+0000d7da  Msp430_GetSupplyVoltage 
+0000d84e  IICWarmup               
+0000d8ba  cm_initMoistureSense    
+0000d926  __fs_toi                
+0000d98e  transmitAndPwrDown      
+0000d9f4  checkCRC                
+0000da54  getTemperature          
+0000dab4  flashLights             
+0000db12  L_LSR_15                
+0000db18  L_LSR_14                
+0000db1e  L_LSR_13                
+0000db24  L_LSR_12                
+0000db2a  L_LSR_11                
+0000db30  L_LSR_10                
+0000db36  L_LSR_9                 
+0000db3c  L_LSR_8                 
+0000db42  L_LSR_7                 
+0000db48  L_LSR_6                 
+0000db4e  L_LSR_5                 
+0000db54  L_LSR_4                 
+0000db5a  L_LSR_3                 
+0000db60  L_LSR_2                 
+0000db66  L_LSR_1                 
+0000db6e  __divul                 
+0000db6e  __remul                 
+0000dbc6  storeCC11xxRegs         
+0000dc1c  crystalOn               
+0000dc70  doTemp7Binary           
+0000dcc4  setupAndPowerDownCC11xx 
+0000dd14  __fs_toul               
+0000dd60  I_LSR                   
+0000dd6e  I_LSR_15                
+0000dd72  I_LSR_14                
+0000dd76  I_LSR_13                
+0000dd7a  I_LSR_12                
+0000dd7e  I_LSR_11                
+0000dd82  I_LSR_10                
+0000dd86  I_LSR_9                 
+0000dd8a  I_LSR_8                 
+0000dd8e  I_LSR_7                 
+0000dd92  I_LSR_6                 
+0000dd96  I_LSR_5                 
+0000dd9a  I_LSR_4                 
+0000dd9e  I_LSR_3                 
+0000dda2  I_LSR_2                 
+0000dda6  I_LSR_1                 
+0000ddac  doSenseHTUTemp16F       
+0000ddf6  recal                   
+0000de40  recalRadioFromTemp      
+0000de8a  __fs_cmp                
+0000ded4  __fs_ltof               
+0000df1e  setMSP430Pins           
+0000df68  _auto_init              
+0000dfb0  setFreq                 
+0000dff8  doBatterySense          
+0000e03e  doSenseHTURH16F         
+0000e084  __fs_tou                
+0000e0ca  IICStart                
+0000e10c  TI_CC_SPISetup          
+0000e14e  TI_CC_SPIWriteBurstReg  
+0000e18e  __divli                 
+0000e18e  __remli                 
+0000e1ce  sleep10ms               
+0000e20e  IICStop                 
+0000e24c  L_ASR_15                
+0000e250  L_ASR_14                
+0000e254  L_ASR_13                
+0000e258  L_ASR_12                
+0000e25c  L_ASR_11                
+0000e260  L_ASR_10                
+0000e264  L_ASR_9                 
+0000e268  L_ASR_8                 
+0000e26c  L_ASR_7                 
+0000e270  L_ASR_6                 
+0000e274  L_ASR_5                 
+0000e278  L_ASR_4                 
+0000e27c  L_ASR_3                 
+0000e280  L_ASR_2                 
+0000e284  L_ASR_1                 
+0000e28a  L_LSL_15                
+0000e28e  L_LSL_14                
+0000e292  L_LSL_13                
+0000e296  L_LSL_12                
+0000e29a  L_LSL_11                
+0000e29e  L_LSL_10                
+0000e2a2  L_LSL_9                 
+0000e2a6  L_LSL_8                 
+0000e2aa  L_LSL_7                 
+0000e2ae  L_LSL_6                 
+0000e2b2  L_LSL_5                 
+0000e2b6  L_LSL_4                 
+0000e2ba  L_LSL_3                 
+0000e2be  L_LSL_2                 
+0000e2c2  L_LSL_1                 
+0000e2c8  round                   
+0000e306  senseBinary             
+0000e344  initHistory             
+0000e380  Wake_up_CC1101          
+0000e3b6  __fs_itof               
+0000e3ec  doSenseTemp16F          
+0000e41e  __fs_ultof              
+0000e450  TI_CC_SPIReadReg        
+0000e480  I_ASR                   
+0000e48c  I_ASR_15                
+0000e48e  I_ASR_14                
+0000e490  I_ASR_13                
+0000e492  I_ASR_12                
+0000e494  I_ASR_11                
+0000e496  I_ASR_10                
+0000e498  I_ASR_9                 
+0000e49a  I_ASR_8                 
+0000e49c  I_ASR_7                 
+0000e49e  I_ASR_6                 
+0000e4a0  I_ASR_5                 
+0000e4a2  I_ASR_4                 
+0000e4a4  I_ASR_3                 
+0000e4a6  I_ASR_2                 
+0000e4a8  I_ASR_1                 
+0000e4ac  __divi                  
+0000e4ac  __remi                  
+0000e4d8  I_LSL                   
+0000e4e4  I_LSL_15                
+0000e4e6  I_LSL_14                
+0000e4e8  I_LSL_13                
+0000e4ea  I_LSL_12                
+0000e4ec  I_LSL_11                
+0000e4ee  I_LSL_10                
+0000e4f0  I_LSL_9                 
+0000e4f2  I_LSL_8                 
+0000e4f4  I_LSL_7                 
+0000e4f6  I_LSL_6                 
+0000e4f8  I_LSL_5                 
+0000e4fa  I_LSL_4                 
+0000e4fc  I_LSL_3                 
+0000e4fe  I_LSL_2                 
+0000e500  I_LSL_1                 
+0000e504  TI_CC_SPIWriteReg       
+0000e52c  updateTemp7             
+0000e554  doSenseAmbientLight     
+0000e57a  freeAll                 
+0000e5a0  __mpyl                  
+0000e5a0  __mpyl_sw               
+0000e5c6  __fs_utof               
+0000e5ea  TI_CC_Wait              
+0000e60a  malloc                  
+0000e62a  recalibrateCC11xx       
+0000e64a  updateTemp16F           
+0000e66a  TI_CC_SPIStrobe         
+0000e688  set_UCS                 
+0000e6a6  crystalOff              
+0000e6c2  _c_int00_noargs_noexit  
+0000e6dc  initTemperature         
+0000e6f6  __divu                  
+0000e6f6  __remu                  
+0000e70c  p1interrupt             
+0000e720  __mpyi                  
+0000e720  __mpyi_sw               
+0000e734  TIMER1_A0_ISR           
+0000e746  memcpy                  
+0000e758  func_epilog_7           
+0000e75a  func_epilog_6           
+0000e75c  func_epilog_5           
+0000e75e  func_epilog_4           
+0000e760  func_epilog_3           
+0000e762  func_epilog_2           
+0000e764  func_epilog_1           
+0000e768  setPowerSettings        
+0000e778  to16Fixed               
+0000e788  ADC10_ISR               
+0000e796  configADC               
+0000e7a4  abs                     
+0000e7ae  getAllSize              
+0000e7b8  setLastTemp             
+0000e7c2  __TI_ISR_TRAP           
+0000e7c8  getBase                 
+0000e7ce  _system_pre_init        
+0000e7d2  C$$EXIT                 
+0000e7d2  abort                   
+0000e7d6  __cinit__               
+0000e7d6  __etext__               
+0000e7d6  cinit                   
+0000e7d6  etext                   
+0000e936  DATA                    
+0000e937  SCK                     
+0000e938  HTU_ADDRESS             
+0000e939  HTU_READ_FLAG           
+0000e93a  HTU_HOLD_TEMP           
+0000e93b  HTU_HOLD_RH             
+0000e93c  HTU_TEMP                
+0000e93d  HTU_RH                  
+0000e93e  HTU_NO_HOLD             
+0000e93f  HTU_WRITE_REG           
+0000e940  HTU_READ_REG            
+0000e941  HTU_SOFT_RESET          
+0000e942  ACK                     
+0000e943  NACK                    
+0000e944  HTU_TEMP_SLOPE          
+0000e948  HTU_TEMP_OFFSET         
+0000e94c  HTU_RH_SLOPE            
+0000e950  HTU_RH_OFFSET           
+0000e952  read_retries            
+0000ffde  bslcfg                  
+0000ffe0  __TI_int00              
+0000ffe0  password1               
+0000ffe2  __TI_int01              
+0000ffe2  password2               
+0000ffe4  __TI_int02              
+0000ffe6  __TI_int03              
+0000ffe8  __TI_int04              
+0000ffe8  password3               
+0000ffea  __TI_int05              
+0000ffec  __TI_int06              
+0000ffee  __TI_int07              
+0000fff0  __TI_int08              
+0000fff2  __TI_int09              
+0000fff4  __TI_int10              
+0000fff6  __TI_int11              
+0000fff8  __TI_int12              
+0000fffa  __TI_int13              
+0000fffc  __TI_int14              
+0000fffe  _reset_vector           
+ffffffff  __binit__               
+ffffffff  __c_args__              
+ffffffff  __pinit__               
+ffffffff  binit                   
+ffffffff  pinit                   
+
+[424 symbols]
